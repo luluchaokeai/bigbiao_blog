@@ -1,6 +1,7 @@
 # -*- coding:UTF-8 -*-
 from flask_caching import Cache
 from flask_cors import CORS
+from flask_httpauth import HTTPTokenAuth
 from flask_sqlalchemy import SQLAlchemy
 
 # author:28795
@@ -11,3 +12,4 @@ from flask_sqlalchemy import SQLAlchemy
 db = SQLAlchemy()
 cors = CORS()
 cache = Cache()
+auth = HTTPTokenAuth('Bearer')

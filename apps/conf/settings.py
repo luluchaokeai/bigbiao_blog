@@ -5,7 +5,7 @@ class SystemConfig:
     # 配置文件
     DEBUG = True
     # 数据库位置
-    SQLALCHEMY_DATABASE_URI = "sqlite:///.. /bigbiao_blog.db"
+    SQLALCHEMY_DATABASE_URI = "sqlite:///" + os.path.join("../bigbiao_blog.db")
     # 相对来说用来减少资源消耗
     SQLALCHEMY_TRACK_MODIFICATIONS = False
     # 记录日志

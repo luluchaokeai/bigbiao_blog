@@ -1,6 +1,5 @@
 # -*- coding:UTF-8 -*-
 from flask import Flask
-
 from apps.api import REDIS_CONFIG
 from apps.api.blog_api import blog_bp
 from exts import *
