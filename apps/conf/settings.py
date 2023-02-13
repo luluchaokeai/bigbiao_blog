@@ -17,7 +17,9 @@ class SystemConfig:
     # 静态资源路径
     STATIC_DIR = os.path.join(BASE_DIR, '../../static')
     # 上传文件路径
-    UPLOAD_DIR = os.path.join(STATIC_DIR, '../../static/upload')
+    UPLOAD_DIR = os.path.join(STATIC_DIR, 'uploads')
+    # 允许上传的文件类型
+    ALLOWED_EXTENSIONS = {'png', 'jpg', 'jpeg', 'gif'}
 
 
 class DevelopmentConfig(SystemConfig):

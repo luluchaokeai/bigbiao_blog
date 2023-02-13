@@ -1,15 +1,15 @@
 # -*- coding:UTF-8 -*-
-import datetime
+# import datetime
 import time
+import datetime
 
 import jwt
 from jwt import PyJWTError
 from werkzeug.security import generate_password_hash, check_password_hash
 
-from apps import conf
-from apps.conf import settings, JWT_EXPIRY_SECOND
+from apps.conf import settings
 from apps.model import BaseModelCreateTime
-from exts import db
+from exts import db, cache
 
 
 # author:28795
@@ -66,6 +66,8 @@ class User(BaseModelCreateTime):
         # algorithm:算法，算法是SHA-256
         # SHA-256:密码散列函数算法.256字节长的哈希值（32个长度的数组）---》16进制字符串表示，长度为64。信息摘要，不可以逆
         token = jwt.encode(payload, settings.SystemConfig.SECRET_KEY, algorithm='HS256')
+        # 由于只有一个用户固缓存里面直接为token(多用户的话要依据情况修改)
+        cache.set("token", token, int(datetime.datetime.timestamp(payload['exp'])))
         return token
 
     @staticmethod
@@ -74,13 +76,12 @@ class User(BaseModelCreateTime):
         @param token:token
         @return:没过期返回User对象,否则返回None
         """
-        print(token)
         try:
             # 返回之前生成token的时候的字典，字典种包含id和exp
             data = jwt.decode(token, settings.SystemConfig.SECRET_KEY, algorithms=['HS256'])
             user = User.query.filter(User.id == data['user_id']).first()
             if user and data['exp'] > int(time.time()):  # 如果用户存在，并且没有过期
-                return {'id': user.id}
+                return user
             else:
                 return None
         except PyJWTError as e:

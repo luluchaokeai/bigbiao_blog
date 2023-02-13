@@ -46,6 +46,8 @@ class Blogs(BaseModelCreateTime):
     see_num = db.Column(db.Integer, default=0, comment="观看数")
     # 更新时间
     update_time = db.Column(db.DateTime, default=datetime.datetime.now, comment="更新时间")
+    # 是否删除
+    is_del = db.Column(db.Boolean, default=1, comment='是否删除')
     # 分类id
     type_id = db.Column(db.Integer, db.ForeignKey('blog_type.id'), comment="分类id")
     # 创建人id
@@ -53,4 +55,3 @@ class Blogs(BaseModelCreateTime):
     # 通过中间表建立联系,lazy为joined在网上搜是遇到大量数据的时候比较快的解决方法(由于本身就是一个练手和自己建议博客的一个搭建，固没有研究，直接参考的结论)
     tags = db.relationship('BlogTag', secondary=blog_tag_map, backref=db.backref('blogs', lazy='joined'),
                            lazy="joined")
-
