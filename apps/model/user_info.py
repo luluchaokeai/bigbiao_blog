@@ -87,20 +87,6 @@ class User(BaseModelCreateTime):
         except PyJWTError as e:
             return None
 
-    def save_update(self):
-        """
-        更新用户信息
-        @return:True(更新成功)False(更新失败)
-        """
-        try:
-            db.session.add(self)
-            db.session.commit()
-        except Exception as e:
-            # 更新失败回滚
-            db.session.rollback()
-            print(e)
-            return False
-        return True
 
 
 class CommentsUser(BaseModelCreateTime):

@@ -2,8 +2,9 @@
 import datetime
 import re
 
-from flask import make_response, jsonify
+from flask import make_response, jsonify, request
 
+from apps.model.blogs_info import Blogs, BlogTag
 from apps.model.user_info import User
 from exts import auth
 from apps.conf.settings import SystemConfig
@@ -71,9 +72,34 @@ def create_res_blog(blog):
     @return: 根据该对象生成的字典元素
     """
     data = dict()
+    data['id'] = blog.id
     data['title'] = blog.title
     data['content'] = blog.content
     data['see_num'] = blog.see_num
     data['create_time'] = datetime.datetime.timestamp(blog.create_time)
     data['update_time'] = datetime.datetime.timestamp(blog.update_time)
     return data
+
+
+def get_blog_info(args):
+    """
+    # 生成blog的字典
+    @param args: request.form中的args
+    @return: 根据该对象生成的字典元素
+    """
+    title = args.get('title', "")
+    content = args.get('content', "")
+    create_time = args.get('update_time', "")
+    update_time = args.get('create_time', "")
+    user_id = args.get('user_id', "")
+    tags = args.getlist('tags')
+    blog = Blogs()
+    blog.title = title
+    blog.content = content
+    blog.create_time = create_time
+    blog.update_time = update_time
+    blog.user_id = user_id
+    tags = [tag for tag in BlogTag.query().filter(BlogTag.id.in_(tags))]
+    # 更新信息
+    blog.tags = tags
+    return blog
