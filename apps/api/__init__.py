@@ -1,6 +1,5 @@
 # -*- coding:UTF-8 -*-
 from flask_restful import Resource
-
 from apps.utils import jsonify_with_args
 
 
@@ -14,9 +13,9 @@ from apps.utils import jsonify_with_args
 class BaseResource(Resource):
     # 初始化返回数据
     def __init__(self):
-        self.response_obj = {'success': True, 'code': 1, 'data': None, 'msg': 'ok'}
+        self.response_obj = {'success': True, 'code': 200, 'data': None, 'msg': 'ok'}
 
-    def return_error_msg(self,msg):
+    def return_error_msg(self, msg):
         self.response_obj['code'] = 0
         self.response_obj['success'] = False
         self.response_obj['msg'] = msg

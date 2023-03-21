@@ -2,12 +2,13 @@
 import datetime
 import re
 
-from flask import make_response, jsonify, request
+from flask import make_response, jsonify
 
+from apps.conf import EMAIL_REG
+from apps.conf.settings import SystemConfig
 from apps.model.blogs_info import Blogs, BlogTag
 from apps.model.user_info import User
 from exts import auth
-from apps.conf.settings import SystemConfig
 
 
 # author:28795
@@ -39,11 +40,10 @@ def jsonify_with_args(data, code=200, *args):
     :return: response对象
     """
     assert isinstance(data, dict)
-    return make_response(jsonify(data), code, *args)
-
-
-email_reg = re.compile(r'([A-Za-z0-9]+[.-_])*[A-Za-z0-9]+@[A-Za-z0-9-]+(\.[A-Z|a-z]{2,})+')
-
+    resp = make_response(jsonify(data), code, *args)
+    resp.headers['Access-Control-Allow-Origin'] = '*'
+    print(resp)
+    return resp
 
 def is_email(email):
     """
@@ -51,7 +51,7 @@ def is_email(email):
     @param email: 邮箱
     @return: True or False
     """
-    if re.fullmatch(email_reg, email):
+    if re.fullmatch(EMAIL_REG, email):
         return True
     return False
 
@@ -67,7 +67,7 @@ def allowed_file(filename):
 
 def create_res_blog(blog):
     """
-    # 生成blog的字典
+    # 生成blog的字典,返回
     @param blog: blog对象
     @return: 根据该对象生成的字典元素
     """
@@ -83,7 +83,7 @@ def create_res_blog(blog):
 
 def get_blog_info(args):
     """
-    # 生成blog的字典
+    # 创建blog的字典,写入
     @param args: request.form中的args
     @return: 根据该对象生成的字典元素
     """

@@ -52,7 +52,7 @@ class BlogApi(BaseResource):
         # 获取传递过来的数据
         blog = get_blog_info(request.form)
         blog.save_update()
-        self.response_obj['data'] = create_res_blog(blog)
+        self.response_obj['data'] = "上传成功"
         self.response_obj['msg'] = "ok"
         return self.response_obj
 

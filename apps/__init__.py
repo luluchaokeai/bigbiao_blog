@@ -1,9 +1,7 @@
 # -*- coding:UTF-8 -*-
-from flask import Flask
-
+from apps.api.user_api import *
 from apps.api.blog_api import BlogApi
 from apps.api.file_api import FileApi
-from apps.api.user_api import *
 from apps.conf import REDIS_CONFIG
 from exts import *
 from apps.conf.settings import DevelopmentConfig
@@ -26,6 +24,7 @@ def add_resource(api):
 
 def create_app():
     app = Flask(__name__, static_folder='../static')
+
     app.config.from_object(DevelopmentConfig)
 
     db.init_app(app=app)

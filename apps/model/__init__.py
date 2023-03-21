@@ -34,7 +34,7 @@ class BaseModelNoCreateTime(db.Model):
 
 
 # 基本数据库模型类(带创建时间)
-class BaseModelCreateTime(db.BaseModelNoCreateTime):
+class BaseModelCreateTime(BaseModelNoCreateTime):
     # 表示这是一个抽象类,只作为被继承的，不作为模型出现
     __abstract__ = True
     create_time = db.Column(db.DateTime, default=datetime.datetime.now, comment="创建时间")

@@ -4,13 +4,20 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1687fa01-4c87-432f-8c23-a21f4822c3d8" name="变更" comment="修改用户信息,获取用户信息,获取博客完成">
+    <list default="true" id="1687fa01-4c87-432f-8c23-a21f4822c3d8" name="变更" comment="修改、增加博客添加完毕，但未测试，完善了之前的一些代码">
+      <change beforePath="$PROJECT_DIR$/.idea/bigbiao_blog.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/bigbiao_blog.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/api/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/api/__init__.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/apps/api/blog_api.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/api/blog_api.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/api/user_api.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/api/user_api.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/conf/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/conf/__init__.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/apps/model/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/model/__init__.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/apps/model/blogs_info.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/model/blogs_info.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/apps/model/user_info.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/model/user_info.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/apps/utils/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/utils/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/exts/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/exts/__init__.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -97,7 +104,7 @@
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;project.propVCSSupport.DirectoryMappings&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settings.ide.settings.new.ui&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
@@ -146,7 +153,16 @@
       <workItem from="1676186735966" duration="9297000" />
       <workItem from="1676266526698" duration="17187000" />
       <workItem from="1676355528416" duration="7223000" />
-      <workItem from="1676374923745" duration="938000" />
+      <workItem from="1676374923745" duration="1200000" />
+      <workItem from="1676873305497" duration="128000" />
+      <workItem from="1676874049932" duration="54000" />
+      <workItem from="1676875949943" duration="727000" />
+      <workItem from="1677467009940" duration="60000" />
+      <workItem from="1677467086688" duration="1385000" />
+      <workItem from="1677720284269" duration="302000" />
+      <workItem from="1677720607788" duration="12088000" />
+      <workItem from="1678067070240" duration="1219000" />
+      <workItem from="1679383912845" duration="796000" />
     </task>
     <task id="LOCAL-00001" summary="首次确定">
       <created>1676010056341</created>
@@ -176,7 +192,14 @@
       <option name="project" value="LOCAL" />
       <updated>1676286011140</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="修改、增加博客添加完毕，但未测试，完善了之前的一些代码">
+      <created>1676376537772</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1676376537773</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -221,7 +244,8 @@
     <MESSAGE value="首次确定" />
     <MESSAGE value="登录token验证正常，但接口并未完善" />
     <MESSAGE value="修改用户信息,获取用户信息,获取博客完成" />
-    <option name="LAST_COMMIT_MESSAGE" value="修改用户信息,获取用户信息,获取博客完成" />
+    <MESSAGE value="修改、增加博客添加完毕，但未测试，完善了之前的一些代码" />
+    <option name="LAST_COMMIT_MESSAGE" value="修改、增加博客添加完毕，但未测试，完善了之前的一些代码" />
   </component>
   <component name="regexState">
     <option name="map">

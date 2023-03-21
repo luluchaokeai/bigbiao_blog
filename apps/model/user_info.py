@@ -88,7 +88,6 @@ class User(BaseModelCreateTime):
             return None
 
 
-
 class CommentsUser(BaseModelCreateTime):
     __tablename__ = 'comment_user'
     # 昵称

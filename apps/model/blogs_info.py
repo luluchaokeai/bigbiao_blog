@@ -56,5 +56,3 @@ class Blogs(BaseModelCreateTime):
     tags = db.relationship('BlogTag', secondary=blog_tag_map, backref=db.backref('blogs', lazy='joined'),
                            lazy="joined")
 
-    def save_update(self):
-        pass

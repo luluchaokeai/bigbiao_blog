@@ -18,31 +18,34 @@ class LoginApi(BaseResource):
     # 登录
     def post(self):
         data = dict()
-        username = request.form.get("username", "")
-        password = request.form.get("password", "")
-        print(request.form)
+        # username = request.form.get("username", "")
+        # password = request.form.get("password", "")
+        # print(request.form)
+        username = request.json.get("username", "")
+        password = request.json.get("password", "")
+        print(request.json)
         if username and password:
             user = object()
             if is_email(username):
                 user = User.query.filter(User.email == username).first()
             else:
                 user = User.query.filter(User.nickname == username).first()
-            try:
+            if user:
                 print("---------------->")
                 print(user)
                 if user.verify_password(password):
                     token = user.generate_auth_token()
                     data['token'] = token
                     self.response_obj['data'] = data
-                    self.response_obj['msg'] = "ok"
+                    # self.response_obj['msg'] = "ok"
                     return jsonify_with_args(self.response_obj)
-            except AttributeError:
-                return self.return_error_msg("用户名或密码错误")
-        return jsonify(error="请输入用户名密码"), 400
+            else:
+                return self.return_error_msg("用户名不存在")
+        return self.return_error_msg("用户名或密码不对")
 
 
 class UserApi(BaseResource):
-
+    @auth.login_required
     def get(self):
         # 返回用户信息(这里做的有点问题,但是本身就是单用户所以不考虑其它问题直接获取用户id为1的就行)
         user = User.query.get(1)
